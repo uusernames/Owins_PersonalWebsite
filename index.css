@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap');
+
+.fuzzy-bubbles-regular {
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-weight: 400;
+}
+
+.fuzzy-bubbles-bold {
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-weight: 700;
+}
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: rgb(236, 229, 217);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+/* === FONTS === */
+.fuzzy-bubbles-regular {
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fuzzy-bubbles-bold {
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* === ABOUT ME ANIMATION CARDS === */
+.container {
+  width: 650px; /* or any fixed width */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center; /* centers children inside the container */
+  align-items: center;
+  height: 300vh;
+  gap: 1em;
+}
+
+.container .items {
+  position: relative;
+  background: rgb(233, 221, 200);
+  padding: 1em 2em;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  width: 200px;
+  height: 300px;
+  box-shadow: -1rem 0 20px rgba(0, 0, 0, 0.5);
+  margin-right: -100px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1em;
+  transition: 0.3s;
+}
+
+.container .items button {
+  background: rgb(70, 51, 1);
+  color: white;
+  padding: 0.5em 1em;
+  outline: none;
+  border: none;
+  border-radius: 0.5em;
+  margin-top: auto;
+  transition: transform 0.2s;
+}
+
+.container .items button:active {
+  transform: scale(0.9);
+}
+
+.container .items:hover {
+  background: rgb(99, 90, 78);
+  color: white;
+  font-size: 1em;
+}
+
+.container .items:hover button {
+  background: rgb(171, 133, 111);
+  color: black;
+}
+
+.container .items:hover ~ .items {
+  transform: translateX(80px) rotate(12deg) scale(0.9);
+  opacity: 0.8;
+}
+/* === typing animation === */
+
+.typing-effect {
+  font-size: 5em;
+  font-family: "Fuzzy Bubbles", sans-serif;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: black;
+  padding-right: 20px;
+  border-right: 4px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0ch;
+  display: inline-block;
+  animation: typing 1.25s forwards, blink 0.6s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0ch;
+  }
+  to {
+    width: 10ch; /* Number of characters */
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+/* === scroll bar animation === */
+.scroll-bar {
+  position: fixed;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 95%;
+  height: 2px;
+  background-color: #000000;
+  transition: transform 0.5s ease-out, opacity 0.3s;
+  opacity: 0;
+  z-index: 999;  /* Lower than header */
+  pointer-events: none;
+}
+.scroll-bar.show {
+  transform: translateX(-50%) scaleX(1);
+  opacity: 1;
+}
+/* === center text animation === */
+.center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%;
+}
+/* === menu animation === */
+.menu-wrapper {
+  font-family: "Fuzzy Bubbles", sans-serif;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1000;
+}
+
+.menu-button {
+  color: black;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease; 
+  border-radius: 0.5rem;
+}
+
+.menu-dropdown {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 100%; 
+  left: 0;  
+  padding: 0.25rem 0; 
+  margin-top: 0;
+  list-style: none;
+  transition: opacity 0.3s ease;
+  min-width: 120px;  
+  user-select: none;
+  z-index: 1001;
+}
+
+.menu-dropdown li {
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  cursor: pointer;
+  opacity: 0;
+  transition: background-color 0.3s ease;
+  display: block;
+  box-sizing: border-box;
+}
+
+.menu-dropdown li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  display: block;
+}
+
+.menu-dropdown li {
+  color: black; /* normal text color */
+}
+
+.menu-dropdown li:hover {
+  color: #616161 !important;
+}
+
+.menu-dropdown li:hover > a {
+  color: #5e5e5e !important;
+}
+
+/* Show dropdown and enable pointer events */
+.menu-wrapper:hover .menu-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Animate list items one by one */
+.menu-wrapper:hover .menu-dropdown li {
+  animation: fadeSlideIn 0.4s forwards;
+}
+
+.menu-wrapper:hover .menu-dropdown li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.menu-wrapper:hover .menu-dropdown li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.menu-wrapper:hover .menu-dropdown li:nth-child(3) {
+  animation-delay: 0.5s;
+}
+.menu-wrapper:hover .menu-dropdown li:nth-child(4) {
+  animation-delay: 0.7s;
+}
+.menu-wrapper:hover .menu-dropdown li:nth-child(5) {
+  animation-delay: 0.9s;
+}
+
+/* Keyframes for fade + slide in */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === footer animation === */
+
+/*=== scroll down arrow button ===*/
+.scroll-down-btn {
+  position: fixed;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  background-color: white;
+  color: black;
+
+  /* Flex center */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Visual appearance */
+  font-size: 1.5rem;
+  border-radius: 100px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+
+  /* Improved hitbox */
+  padding: 0.5 rem;
+  min-width: 50px;
+  min-height: 50px;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.scroll-down-btn:hover {
+  background-color: #d1d5db; /* Tailwind's gray-300 */
+}
+/* === pre title === */
+.pretitle {
+  position: absolute;
+  top: 550px;
+  left: 50%;                /* Move element’s left edge to middle of screen */
+  transform: translateX(-50%); /* Shift element left by half its width, centering it */
+  font-size: 2rem;
+  color: #7e6a53;
+  font-family: "Fuzzy Bubbles", sans-serif;
+  user-select: none;
+  z-index: 1000;
+  text-align: center;
+  margin: 0 auto;
+}
+/* === signature === */
+.signature-link {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 1000;
+  display: inline-block;
+}
+
+.signature-link img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.signature-link img {
+  width: 80%;
+  height: auto;
+  display: block;
+}
+.cat-image {
+  position: fixed;
+  top: -5px;
+  right: 120px;
+  width: 80px; /* Adjust size as needed */
+  height: auto;
+  z-index: 1100; /* Above most elements */
+  border-radius: 8px; /* Optional: nice rounded corners */
+  user-select: none;
+  pointer-events: none; /* So it doesn't block clicks below */
+}
+/*== link img ===*/
+.download {
+  position: fixed;
+  top: 1.777rem;
+  right: 13.1rem;
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.linked {
+  position: fixed;
+  top: 1.777rem;
+  right: 16.5rem;
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.boarder {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: auto;
+  height: auto;
+  z-index: 10;
+}
+.boarder2 {
+  position: absolute;
+  top: 50px;
+  left: 94%;
+  width: auto;
+  height: auto;
+  z-index: 10;
+}
+/*=== pretitle2 ===*/
+.pretitle2 {
+  position: absolute;
+  top: 590px;
+  left: 50%;               
+  transform: translateX(-50%); 
+  font-size: 1.5rem;
+  color: #977f64;
+  font-family: "Fuzzy Bubbles", sans-serif;
+  user-select: none;
+  z-index: 1000;
+  text-align: center;
+  margin: 0 auto;
+}
+.Aboutme {
+  position: absolute;
+  top: 130%;
+  left: 10%;               
+  transform: translateX(-50%); 
+  font-size: 3rem;
+  color: #383027;
+  font-family: "Fuzzy Bubbles", sans-serif;
+  user-select: none;
+  z-index: 1000;
+  text-align: center;
+  margin: 0 auto;
+}
